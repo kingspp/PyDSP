@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="http://kingspp.pythonanywhere.com/media/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="http://kingspp.pythonanywhere.com/static/style.css" />
+        <div style="position: absolute; left: 300px; top: 10px;">
+            <img src="http://kingspp.pythonanywhere.com/media/newlogo-repro.png" width="50" height="50" href="http://kingspp.pythonanywhere.com/" >
+        </div>
+    <title>PyDSP</title>
+</head>
+
+<body>
+    <div id="page">
+      <div id="pagetop">
+		<h1>PyDSP</h1>
+            <div class="links">
+                {% block navbar %}
+                <ul>
+           	   	    <li><a href="http://kingspp.pythonanywhere.com/"><font color="#65A9ED">Home</font></a></li>
+               	    <li><a href="#">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+                {% endblock %}
+            </div>
+        </div>
+
+        <div id="header">  Like Python! Like Never Before!     </div>
+
+
+<div id="main">
+	<div class="content">
+        	<div class="main_top">
+            	<h1>{% block title %}Digital Signal Processing:{% endblock %}</h1>
+            </div>
+
+           	<div class="main_body">
+                {% block main_body %}
+                <p>&nbsp&nbspDigital signal processing (DSP) is the mathematical manipulation of an information signal to modify or improve it in some way. It is characterized by the representation of discrete time, discrete frequency, or other discrete domain signals by a sequence of numbers or symbols and the processing of these signals.</p>
+                <list>
+                <li><a href="linear_conv">Linear Convolution</a></li>
+                <li><a href="circular_conv">Circular Convolution</a></li>
+                <li><a href="imp_respf">Impulse Response [First Order]</a></li>
+                <li><a href="imp_resps">Impulse Response [Second Order]</a></li>
+                <li><a href="ndft">N-Point Discrete Fourier Transform</a></li>
+                </list>
+
+                {% endblock %}
+            </div>
+
+			</div>
+            <div class="clear">&nbsp;</div>
+        </div>
+
+<div id="footer">
+        <p><a href="http://www.codetronix.in">CODE-TRONIX</a> powered by <a href="https://www.djangoproject.com">DJango</a> {{ right_now }}</p>
+
+        </div>
+
+
+
+        </div>
+</body>
+</html>
