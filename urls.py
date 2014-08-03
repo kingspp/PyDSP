@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'Vote.myapp.views.home', name='home'),
     url(r'^contact', 'Vote.myapp.views.contact', name='contact'),
+    url(r'^about', 'Vote.myapp.views.about', name='about'),
     url(r'^linear_conv', 'Vote.myapp.views.linear_conv', name='linear_conv'),
     url(r'^circular_conv', 'Vote.myapp.views.circular_conv', name='circular_conv'),
     url(r'^imp_respf', 'Vote.myapp.views.imp_respf', name='imp_respf'),

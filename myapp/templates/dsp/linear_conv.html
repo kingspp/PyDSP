@@ -6,7 +6,7 @@
 
     <p>Linear convolution is the basic operation to calculate the output for any linear time invariant system given its input and its impulse response.</p><br>
 
-
+<p>Enter the sequence with spaces only. ex: 1 1 1 1 for [1,1,1,1]</p>
 <form action="" method="post">
 {% csrf_token %}
 {{ form.as_p }} <br>
@@ -14,10 +14,10 @@
 </form>
 
 <br>
-<ul>
-<li>x(n) = {{input1}}
-<li>h(n) = {{input2}}
-<li>Linear Convoluation = {{output}}
+
+{{input1}}<br>
+{{input2}}<br>
+{{output}}<br>
 
 
 {% endblock %}

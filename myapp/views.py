@@ -20,6 +20,9 @@ def home(request):
 def contact(request):
     return render(request, 'home_contact.html',{'right_now':datetime.now()})
 
+def about(request):
+    return render(request, 'home_about.html',{'right_now':datetime.now()})
+
 def linear_conv(request):
     if request.method == 'POST':
         form = Output(request.POST)
@@ -29,8 +32,11 @@ def linear_conv(request):
             input2 = cd['input2']
             x=arr_conv(input1)
             h=arr_conv(input2)
-            output = numpy.convolve(x, h)
-        return render_to_response('dsp/linear_conv.html', {'form':form, 'input1': input1, 'input2':input2, 'output':output,'right_now':datetime.now()}, context_instance=RequestContext(request))
+            xd="x(n) = " + str(x)
+            hd="h(n) = " + str(h)
+            result = str(numpy.convolve(x, h))
+            output = "The Linear Convolution of x(n) and y(n) is: " + result
+        return render_to_response('dsp/linear_conv.html', {'form':form, 'input1': xd, 'input2': hd, 'output':output,'right_now':datetime.now()}, context_instance=RequestContext(request))
     else:
         form = Output()
         return render_to_response('dsp/linear_conv.html', {'form': form,'right_now':datetime.now()}, context_instance=RequestContext(request))
