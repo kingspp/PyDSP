@@ -2,4 +2,20 @@
 
 {% block title %}Circular Convolution{% endblock %}
 
-{% block main_body %} {% endblock %}
+{% block main_body %}
+<p>The circular convolution, also known as cyclic convolution, of two aperiodic functions (i.e. Schwartz functions) occurs when one of them is convolved in the normal way with a periodic summation of the other function.</p>
+
+<form action="" method="post">
+{% csrf_token %}
+{{ form.as_p }} <br>
+<input type="submit" value="Calculate!">
+</form>
+
+<br>
+<ul>
+<li>x(n) = {{input1}}
+<li>h(n) = {{input2}}
+<li>Circular Convoluation = {{output}}
+
+
+{% endblock %}
