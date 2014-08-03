@@ -2,10 +2,16 @@
 from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from models import Queries
+from django.shortcuts import render_to_response
+from uforms import Output
+from django.template import RequestContext
+from django.core.urlresolvers import reverse
+import numpy
 
-
-
+def arr_conv(xn):
+    xn=(xn.split(" "))
+    xn=map(int,xn)
+    return xn
 
 
 def home(request):
@@ -14,10 +20,20 @@ def home(request):
 def contact(request):
     return render(request, 'home_contact.html',{'right_now':datetime.now()})
 
-
-
 def linear_conv(request):
-    return render(request, 'linear_conv.html',{'right_now':datetime.now()})
+    if request.method == 'POST':
+        form = Output(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            input1 = cd['input1']
+            input2 = cd['input2']
+            x=arr_conv(input1)
+            h=arr_conv(input2)
+            output = numpy.convolve(x, h)
+        return render_to_response('dsp/linear_conv.html', {'form':form, 'input1': input1, 'input2':input2, 'output':output,'right_now':datetime.now()}, context_instance=RequestContext(request))
+    else:
+        form = Output()
+        return render_to_response('dsp/linear_conv.html', {'form': form,'right_now':datetime.now()}, context_instance=RequestContext(request))
 
 def imp_respf(request):
     return render(request, 'dsp/imp_respf.html',{'right_now':datetime.now()})
@@ -30,7 +46,5 @@ def circular_conv(request):
 
 def ndft(request):
         return render(request, 'dsp/ndft.html',{'right_now':datetime.now()})
-
-
 
 

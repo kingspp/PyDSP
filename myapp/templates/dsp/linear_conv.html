@@ -1,10 +1,23 @@
 {% extends "home.html" %}
 
 {% block title %}Linear Convolution{% endblock %}
-<p>hrllo</p>
+
 {% block main_body %}
 
     <p>Linear convolution is the basic operation to calculate the output for any linear time invariant system given its input and its impulse response.</p><br>
+
+
+<form action="" method="post">
+{% csrf_token %}
+{{ form.as_p }} <br>
+<input type="submit" value="Calculate!">
+</form>
+
+<br>
+<ul>
+<li>x(n) = {{input1}}
+<li>h(n) = {{input2}}
+<li>Linear Convoluation = {{output}}
 
 
 {% endblock %}

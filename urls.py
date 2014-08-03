@@ -14,6 +14,8 @@ urlpatterns = patterns('',
     url(r'^imp_respf', 'Vote.myapp.views.imp_respf', name='imp_respf'),
     url(r'^imp_resps', 'Vote.myapp.views.imp_resps', name='imp_resps'),
     url(r'^ndft', 'Vote.myapp.views.ndft', name='ndft'),
+
+
     #url(r'^Vote/', include('Vote.foo.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
