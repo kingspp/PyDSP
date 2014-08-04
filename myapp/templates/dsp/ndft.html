@@ -3,9 +3,9 @@
 {% block title %}N point Discrete Fourier Transform{% endblock %}
 
 {% block main_body %}
-<p>In mathematics, the discrete Fourier transform (DFT) converts a finite list of equally spaced samples of a function into the list of coefficients of a finite combination of complex sinusoids, ordered by their frequencies, that has those same sample values. It can be said to convert the sampled function from its original domain (often time or position along a line) to the frequency domain.</p>
+<p>&nbspIn mathematics, the discrete Fourier transform (DFT) converts a finite list of equally spaced samples of a function into the list of coefficients of a finite combination of complex sinusoids, ordered by their frequencies, that has those same sample values. It can be said to convert the sampled function from its original domain (often time or position along a line) to the frequency domain.</p>
 
-<p>Enter the sequence with spaces only. ex: 1 1 1 1 for [1,1,1,1]</p>
+<p><b>Enter the sequence with spaces only. ex: 1 1 1 1 for [1,1,1,1]</b></p>
 <form action="" method="post">
 {% csrf_token %}
 {{ form.as_p }} <br>

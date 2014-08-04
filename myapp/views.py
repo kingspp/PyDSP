@@ -8,11 +8,14 @@ from uforms import Ndft_form
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 import numpy as np
+from dsp import arr_conv
+from dsp import pad_zero
+from dsp import cir_conv
 
-def arr_conv(xn):
-    xn=(xn.split(" "))
-    xn=map(int,xn)
-    return xn
+res=np.zeros(10,dtype=int)
+temp=np.zeros(10,dtype=int)
+
+
 
 
 def home(request):
@@ -52,10 +55,42 @@ def circular_conv(request):
             cd = form.cleaned_data
             input1 = cd['input1']
             input2 = cd['input2']
+
+
             x=arr_conv(input1)
             h=arr_conv(input2)
-            output = np.convolve(x, h)
-        return render_to_response('dsp/circular_conv.html', {'form':form, 'input1': input1, 'input2':input2, 'output':output,'right_now':datetime.now()}, context_instance=RequestContext(request))
+            xd="x(n) = " + str(x)
+            hd="h(n) = " + str(h)
+            x = np.asarray(x)
+            h = np.asarray(h)
+
+
+            xlen=len(x)
+            hlen=len(h)
+            r=xlen-hlen
+
+            if xlen>hlen:
+                h=np.resize(h, xlen)
+                lmax=xlen
+
+            if hlen>xlen:
+                x=np.resize(x, hlen)
+                lmax=hlen
+
+            if hlen==xlen:
+                lmax=xlen
+
+            pad_zero(r,xlen,hlen,h,x)
+            h_rev=h[::-1]
+            resn=np.resize(res, lmax)
+
+            cir_conv(x,h,lmax,resn,temp,h_rev)
+
+            res_rev='The Circular Convolution of x(n) and y(n) is: ' + str(resn[::-1])
+
+
+
+        return render_to_response('dsp/circular_conv.html', {'form':form, 'input1': xd, 'input2':hd, 'output':res_rev,'right_now':datetime.now()}, context_instance=RequestContext(request))
     else:
         form = Output()
         return render_to_response('dsp/circular_conv.html', {'form': form,'right_now':datetime.now()}, context_instance=RequestContext(request))
