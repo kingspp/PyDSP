@@ -3,6 +3,7 @@ Added Impulse Responce [First Order]
 Added Impulse Responce [Second Order]
 Updated Views.py
 Updated Urls.py
+Added Changelog in about
 RC Version
 
 04-08-14
