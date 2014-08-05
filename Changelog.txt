@@ -1,0 +1,45 @@
+05-08-14
+Added Impulse Responce [First Order]
+Added Impulse Responce [Second Order]
+Updated Views.py
+Updated Urls.py
+RC Version
+
+04-08-14
+Added N point DFT
+Updated Views.py
+Updated Urls.py
+
+03-08-14
+Added forms in HTML/CSS
+Forms is backed by uforms.py module
+Added Linear Convolution
+Added Circular Convolution
+Updated Views.py 
+Updated Urls.py
+
+31-07-14
+Added home.html as base.html
+Home.html is a backbone for html for django framework
+
+29-07-14
+Added Footer with Date and time function
+
+27-07-14
+Added VOTE
+Added VOTE.myapp
+Added Style.css and Contact
+Added views form home,contact,about
+Added Urls
+
+26-07-14
+Added Static and Media Files
+
+25-07-14
+Added PyDSP Themed in HTML/CSS
+
+24-07-14
+Installed Django Framework
+
+22-07-14
+Started PyDSP Project
