@@ -2,4 +2,21 @@
 
 {% block title %}Impulse Response [Second Order]{% endblock %}
 
-{% block main_body %} {% endblock %}
+{% block main_body %}
+
+<p>&nbsp In signal processing, the impulse response, or impulse response function, of a dynamic system is its output when presented with a brief input signal, called an impulse</p>
+
+<p><b>Enter the sequence with spaces only. ex: 1 1 1 1 for [1,1,1,1]</b></p>
+<form action="" method="post">
+{% csrf_token %}
+{{ form.as_p }} <br>
+<input type="submit" value="Calculate!">
+</form>
+
+<br>
+
+{{input1}}<br>
+{{input2}}<br>
+{{output}}<br>
+
+{% endblock %}

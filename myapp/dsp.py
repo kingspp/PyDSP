@@ -6,6 +6,12 @@ def arr_conv(xn):
     xn=map(int,xn)
     return xn
 
+def arr_convf(xn):
+    xn=(xn.split(" "))
+    xn=map(float,xn)
+    return xn
+
+
 def pad_zero(r,xlen,hlen,h,x):
     if r!=0:
         if xlen > hlen:
