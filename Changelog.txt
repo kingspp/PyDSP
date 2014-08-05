@@ -3,6 +3,7 @@ Added Impulse Responce [First Order]
 Added Impulse Responce [Second Order]
 Updated Views.py
 Updated Urls.py
+Added Credits
 Added Changelog in about
 RC Version
 
@@ -16,7 +17,7 @@ Added forms in HTML/CSS
 Forms is backed by uforms.py module
 Added Linear Convolution
 Added Circular Convolution
-Updated Views.py 
+Updated Views.py
 Updated Urls.py
 
 31-07-14
