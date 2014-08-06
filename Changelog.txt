@@ -3,6 +3,8 @@ Added Discrete Fourier Transform [DFT]
 Added Inverse Discrete Fourier Transform [IDFT]
 Added Autocorrelation
 Added Crosscorrelation
+Updated Views.py
+Updated Urls.py
 
 
 05-08-14
