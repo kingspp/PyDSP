@@ -9,6 +9,8 @@ from uforms import Imp_form
 from uforms import Dft_idft
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
+from uplot import gp
+
 import numpy as np
 from dsp import arr_conv
 from dsp import arr_convf
@@ -67,9 +69,14 @@ def linear_conv(request):
             h=arr_conv(input2)
             xd="x(n) = " + str(x)
             hd="h(n) = " + str(h)
-            result = str(np.convolve(x, h))
+            resultd=np.convolve(x, h)
+            num=len(resultd)
+            result = str(resultd)
             output = "The Linear Convolution of x(n) and y(n) is: " + result
-        return render_to_response('dsp/linear_conv.html', {'form':form, 'input1': xd, 'input2': hd, 'output':output,'right_now':datetime.now()}, context_instance=RequestContext(request))
+            c='l'
+            gp(resultd,num,c)
+            graphy='<img src="http://kingspp.pythonanywhere.com/media/plots/test.png" height="400px" width="500px" ></img>'
+        return render_to_response('dsp/linear_conv.html', {'form':form, 'input1': xd, 'input2': hd, 'output':output, 'graphy':graphy, 'right_now':datetime.now()}, context_instance=RequestContext(request))
     else:
         form = Output()
         return render_to_response('dsp/linear_conv.html', {'form': form,'right_now':datetime.now()}, context_instance=RequestContext(request))
@@ -102,8 +109,12 @@ def imp_respf(request):
                 else:
                     h[i]=-sum
 
+            c='if'
+            num=len(h)
+            gp(h,num,c)
+            graphy='<img src="http://kingspp.pythonanywhere.com/media/plots/test.png" height="400px" width="500px" ></img>'
             output = "The First Order Impulse Responce h(n) is: " + str(h)
-        return render_to_response('dsp/imp_respf.html', {'form':form, 'input1': xd, 'input2': yd, 'output':output,'right_now':datetime.now()}, context_instance=RequestContext(request))
+        return render_to_response('dsp/imp_respf.html', {'form':form, 'input1': xd, 'input2': yd, 'output':output, 'graphy':graphy,'right_now':datetime.now()}, context_instance=RequestContext(request))
     else:
         form = Imp_form()
         return render_to_response('dsp/imp_respf.html', {'form': form,'right_now':datetime.now()}, context_instance=RequestContext(request))
@@ -135,9 +146,12 @@ def imp_resps(request):
                     h[i]=x[i]-sum
                 else:
                     h[i]=-sum
-
+            c='is'
+            num=len(h)
+            gp(h,num,c)
+            graphy='<img src="http://kingspp.pythonanywhere.com/media/plots/test.png" height="400px" width="500px" ></img>'
             output = "The Second Order Impulse Responce h(n) is: " + str(h)
-        return render_to_response('dsp/imp_respf.html', {'form':form, 'input1': xd, 'input2': yd, 'output':output,'right_now':datetime.now()}, context_instance=RequestContext(request))
+        return render_to_response('dsp/imp_respf.html', {'form':form, 'input1': xd, 'input2': yd, 'output':output, 'graphy':graphy,'right_now':datetime.now()}, context_instance=RequestContext(request))
     else:
         form = Imp_form()
         return render_to_response('dsp/imp_respf.html', {'form': form,'right_now':datetime.now()}, context_instance=RequestContext(request))
@@ -180,12 +194,16 @@ def circular_conv(request):
             resn=np.resize(res, lmax)
 
             cir_conv(x,h,lmax,resn,temp,h_rev)
+            resn=resn[::-1]
+            num=len(resn)
+            c='c'
+            gp(resn,num,c)
+            graphy='<img src="http://kingspp.pythonanywhere.com/media/plots/test.png" height="400px" width="500px" ></img>'
+            res_rev='The Circular Convolution of x(n) and y(n) is: ' + str(resn)
 
-            res_rev='The Circular Convolution of x(n) and y(n) is: ' + str(resn[::-1])
 
 
-
-        return render_to_response('dsp/circular_conv.html', {'form':form, 'input1': xd, 'input2':hd, 'output':res_rev,'right_now':datetime.now()}, context_instance=RequestContext(request))
+        return render_to_response('dsp/circular_conv.html', {'form':form, 'input1': xd, 'input2':hd, 'output':res_rev, 'graphy':graphy,'right_now':datetime.now()}, context_instance=RequestContext(request))
     else:
         form = Output()
         return render_to_response('dsp/circular_conv.html', {'form': form,'right_now':datetime.now()}, context_instance=RequestContext(request))
@@ -198,9 +216,13 @@ def ndft(request):
             input1 = cd['input1']
             x=arr_conv(input1)
             output = np.fft.fftn(x)
+
+            gp()
+            graphy='<img src="http://kingspp.pythonanywhere.com/media/plots/test.png" height="400px" width="500px" aligh="center"></img>'
+
             output = 'The N-Point Discrete Fourier Transform of x(n) is : ' + str(output)
             indisp='Input Sequence x(n): ' + '[' + str(input1) + ']'
-        return render_to_response('dsp/ndft.html', {'form':form, 'input1': indisp, 'output':output,'right_now':datetime.now()}, context_instance=RequestContext(request))
+        return render_to_response('dsp/ndft.html', {'form':form, 'input1': indisp, 'output':output, 'graphy':graphy,'right_now':datetime.now()}, context_instance=RequestContext(request))
     else:
         form = Ndft_form()
         return render_to_response('dsp/ndft.html', {'form': form,'right_now':datetime.now()}, context_instance=RequestContext(request))
@@ -214,9 +236,14 @@ def auto_corr(request):
             input1 = cd['input1']
             x=arr_conv(input1)
             output=np.correlate(x,x,'full')
+            output=np.asarray(output)
+            c='ac'
+            num=len(output)
+            gp(output,num,c)
+            graphy='<img src="http://kingspp.pythonanywhere.com/media/plots/test.png" height="400px" width="500px" ></img>'
             output = 'The Autocorrelation of x(n) is : ' + str(output)
             indisp='Input Sequence x(n): ' + '[' + str(input1) + ']'
-        return render_to_response('dsp/auto_corr.html', {'form':form, 'input1': indisp, 'output':output,'right_now':datetime.now()}, context_instance=RequestContext(request))
+        return render_to_response('dsp/auto_corr.html', {'form':form, 'input1': indisp, 'output':output, 'graphy':graphy, 'right_now':datetime.now()}, context_instance=RequestContext(request))
     else:
         form = Ndft_form()
         return render_to_response('dsp/auto_corr.html', {'form': form,'right_now':datetime.now()}, context_instance=RequestContext(request))
@@ -231,10 +258,15 @@ def cross_corr(request):
             x=arr_conv(input1)
             h=arr_conv(input2)
             output=np.correlate(x,h,'full')
+            output=np.asarray(output)
+            c='cc'
+            num=len(output)
+            gp(output,num,c)
+            graphy='<img src="http://kingspp.pythonanywhere.com/media/plots/test.png" height="400px" width="500px" ></img>'
             output = 'The Crosscorrelation of x(n) and h(n) is : ' + str(output)
             indispx='Input Sequence x(n): ' + '[' + str(input1) + ']'
             indisph='Input Sequence h(n): ' + '[' + str(input2) + ']'
-        return render_to_response('dsp/cross_corr.html', {'form':form, 'input1': indispx,'input2': indisph, 'output':output,'right_now':datetime.now()}, context_instance=RequestContext(request))
+        return render_to_response('dsp/cross_corr.html', {'form':form, 'input1': indispx,'input2': indisph, 'output':output, 'graphy':graphy,'right_now':datetime.now()}, context_instance=RequestContext(request))
     else:
         form = Output()
         return render_to_response('dsp/cross_corr.html', {'form': form,'right_now':datetime.now()}, context_instance=RequestContext(request))
