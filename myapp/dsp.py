@@ -11,6 +11,11 @@ def arr_convf(xn):
     xn=map(float,xn)
     return xn
 
+def arr_convc(xn):
+    xn=(xn.split(" "))
+    xn=map(complex,xn)
+    return xn
+
 
 def pad_zero(r,xlen,hlen,h,x):
     if r!=0:

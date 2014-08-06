@@ -1,0 +1,20 @@
+{% extends "home.html" %}
+
+{% block title %}DFT and IDFT{% endblock %}
+
+{% block main_body %}
+
+<p>&nbsp;&nbsp;The discrete Fourier transform (DFT) converts a finite list of equally spaced samples of a function into the list of coefficients of a finite combination of complex sinusoids, ordered by their frequencies, that has those same sample values. It can be said to convert the sampled function from its original domain (often time or position along a line) to the frequency domain.</p>
+<p><b>Enter the sequence with spaces only. ex: 1 -0.1 -2j 1 for [1,-0.1,-j2,1]</b></p>
+<form action="" method="post">
+{% csrf_token %}
+{{ form.as_p }} <br>
+<input type="submit" value="Calculate!">
+</form>
+
+<br>
+
+{{input1}}<br>
+{{choice}}<br>
+{{output}}<br>
+{% endblock %}

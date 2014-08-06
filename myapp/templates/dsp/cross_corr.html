@@ -1,0 +1,21 @@
+{% extends "home.html" %}
+
+{% block title %}Crosscorrelation{% endblock %}
+
+{% block main_body %}
+
+<p>&nbsp;&nbsp;Cross-correlation is a measure of similarity of two waveforms as a function of a time-lag applied to one of them. This is also known as a sliding dot product or sliding inner-product.</p>
+<p><b>Enter the sequence with spaces only. ex: 1 1 1 1 for [1,1,1,1]</b></p>
+<form action="" method="post">
+{% csrf_token %}
+{{ form.as_p }} <br>
+<input type="submit" value="Calculate!">
+</form>
+
+<br>
+
+{{input1}}<br>
+{{input2}}<br>
+{{output}}<br>
+
+{% endblock %}

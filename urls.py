@@ -15,6 +15,9 @@ urlpatterns = patterns('',
     url(r'^imp_respf', 'Vote.myapp.views.imp_respf', name='imp_respf'),
     url(r'^imp_resps', 'Vote.myapp.views.imp_resps', name='imp_resps'),
     url(r'^ndft', 'Vote.myapp.views.ndft', name='ndft'),
+    url(r'^dft_idft', 'Vote.myapp.views.dft_idft', name='dft_idft'),
+    url(r'^auto_corr', 'Vote.myapp.views.auto_corr', name='auto_corr'),
+    url(r'^cross_corr', 'Vote.myapp.views.cross_corr', name='cross_corr'),
 
 
     #url(r'^Vote/', include('Vote.foo.urls')),

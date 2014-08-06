@@ -1,3 +1,10 @@
+06-08-14
+Added Discrete Fourier Transform [DFT]
+Added Inverse Discrete Fourier Transform [IDFT]
+Added Autocorrelation
+Added Crosscorrelation
+
+
 05-08-14
 Added Impulse Responce [First Order]
 Added Impulse Responce [Second Order]
