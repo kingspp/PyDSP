@@ -16,6 +16,10 @@ Added Autocorrelation
 Added Crosscorrelation
 Updated Views.py
 Updated Urls.py
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5822829a8b712db13e5ec4ce436ec91358780dbb
 
 05-08-14
 Added Impulse Responce [First Order]
