@@ -1,0 +1,23 @@
+{% extends "home.html" %}
+
+{% block title %}Sampling Theorem{% endblock %}
+
+{% block main_body %}
+<p>&nbsp;&nbsp; Sampling theorem states that "Exact reconstruction of a continuous time based signal from its samples is possible, if the signal is band limited and the sampling frequency is greater than twice the signal bandwidth" i.e, fs > 2W, where W is the signal bandwidth.</p><br>
+
+
+<form action="" method="post">
+{% csrf_token %}
+<table>
+{{ form.as_table }}</table>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Calculate!">
+</form>
+
+<br>
+
+{{input1}}<br>
+
+<br>
+{{graphy|safe}}<br>
+
+{% endblock %}

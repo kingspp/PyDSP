@@ -1,3 +1,10 @@
+08-08-14
+Added Sampling theorem
+Added Check for Nyquist plot
+Added Check for Undersampling
+Added Check for Oversampling
+Fixed Matplotlib graph retaining issue
+
 07-08-14
 Added Matplotlib Functionality
 Added Graph for Linear Convolution

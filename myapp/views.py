@@ -7,10 +7,11 @@ from uforms import Output
 from uforms import Ndft_form
 from uforms import Imp_form
 from uforms import Dft_idft
+from uforms import Nyq
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from uplot import gp
-
+from uplot import nyq_plot
 import numpy as np
 from dsp import arr_conv
 from dsp import arr_convf
@@ -20,10 +21,6 @@ from dsp import cir_conv
 
 res=np.zeros(10,dtype=int)
 temp=np.zeros(10,dtype=int)
-
-
-
-
 
 def home(request):
     return render(request, 'home.html', {'right_now':datetime.now()})
@@ -52,11 +49,14 @@ def dft_idft(request):
                 ch="Your choice was IDFT"
                 result="The IDFT of x(n) is: " + str(res)
             xd="x(n) = " + str(x)
-        return render_to_response('dsp/dft_idft.html', {'form':form, 'input1': xd, 'choice': ch, 'output':result,'right_now':datetime.now()}, context_instance=RequestContext(request))
+            c='l'
+            num=len(res)
+            gp(res,num,c)
+            graphy='<img src="http://kingspp.pythonanywhere.com/media/plots/test.png" height="400px" width="500px" ></img>'
+        return render_to_response('dsp/dft_idft.html', {'form':form, 'input1': xd, 'choice': ch, 'output':result, 'graphy':graphy,'right_now':datetime.now()}, context_instance=RequestContext(request))
     else:
         form = Dft_idft()
         return render_to_response('dsp/dft_idft.html', {'form': form,'right_now':datetime.now()}, context_instance=RequestContext(request))
-
 
 def linear_conv(request):
     if request.method == 'POST':
@@ -98,7 +98,6 @@ def imp_respf(request):
             LEN=6
             h=np.zeros(LEN)
             sum=0.0
-
             for i in xrange(LEN):
                 sum=0.0
                 for k in xrange(1,ORDER+1):
@@ -164,20 +163,15 @@ def circular_conv(request):
             cd = form.cleaned_data
             input1 = cd['input1']
             input2 = cd['input2']
-
-
             x=arr_conv(input1)
             h=arr_conv(input2)
             xd="x(n) = " + str(x)
             hd="h(n) = " + str(h)
             x = np.asarray(x)
             h = np.asarray(h)
-
-
             xlen=len(x)
             hlen=len(h)
             r=xlen-hlen
-
             if xlen>hlen:
                 h=np.resize(h, xlen)
                 lmax=xlen
@@ -188,11 +182,9 @@ def circular_conv(request):
 
             if hlen==xlen:
                 lmax=xlen
-
             pad_zero(r,xlen,hlen,h,x)
             h_rev=h[::-1]
             resn=np.resize(res, lmax)
-
             cir_conv(x,h,lmax,resn,temp,h_rev)
             resn=resn[::-1]
             num=len(resn)
@@ -200,9 +192,6 @@ def circular_conv(request):
             gp(resn,num,c)
             graphy='<img src="http://kingspp.pythonanywhere.com/media/plots/test.png" height="400px" width="500px" ></img>'
             res_rev='The Circular Convolution of x(n) and y(n) is: ' + str(resn)
-
-
-
         return render_to_response('dsp/circular_conv.html', {'form':form, 'input1': xd, 'input2':hd, 'output':res_rev, 'graphy':graphy,'right_now':datetime.now()}, context_instance=RequestContext(request))
     else:
         form = Output()
@@ -226,7 +215,6 @@ def ndft(request):
     else:
         form = Ndft_form()
         return render_to_response('dsp/ndft.html', {'form': form,'right_now':datetime.now()}, context_instance=RequestContext(request))
-
 
 def auto_corr(request):
     if request.method == 'POST':
@@ -270,6 +258,20 @@ def cross_corr(request):
     else:
         form = Output()
         return render_to_response('dsp/cross_corr.html', {'form': form,'right_now':datetime.now()}, context_instance=RequestContext(request))
+
+def sampling(request):
+    if request.method == 'POST':
+        form = Nyq(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            input1 = cd['input1']
+            input2 = cd['input2']
+            nyq_plot(input1,input2)
+            graphy='<img src="http://kingspp.pythonanywhere.com/media/plots/test.png" height="400px" width="600px" ></img>'
+        return render_to_response('dsp/sampling.html', {'form':form, 'graphy':graphy,'right_now':datetime.now()}, context_instance=RequestContext(request))
+    else:
+        form = Nyq()
+        return render_to_response('dsp/sampling.html', {'form': form,'right_now':datetime.now()}, context_instance=RequestContext(request))
 
 
 
