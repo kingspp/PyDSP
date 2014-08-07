@@ -4,6 +4,7 @@ Added Check for Nyquist plot
 Added Check for Undersampling
 Added Check for Oversampling
 Fixed Matplotlib graph retaining issue
+Added Technologies adapted with credit links
 
 07-08-14
 Added Matplotlib Functionality
