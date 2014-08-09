@@ -3,6 +3,7 @@ Fixed issues with page title
 The Header is now dynamic
 Added Plots to DFT & IDFT
 Now Plots are differentiated among real and imaginary values
+Changed Credits
 
 08-08-14
 Added Sampling theorem
