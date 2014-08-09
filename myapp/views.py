@@ -19,6 +19,8 @@ from dsp import arr_convc
 from dsp import pad_zero
 from dsp import cir_conv
 
+
+
 res=np.zeros(10,dtype=int)
 temp=np.zeros(10,dtype=int)
 
@@ -36,8 +38,10 @@ def dft_idft(request):
         form = Dft_idft(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
+
             input1 = cd['input1']
             choice = cd['choice']
+
             x=arr_convc(input1)
             x=np.asarray(x)
             if choice=='Yes':

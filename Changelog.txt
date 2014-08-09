@@ -1,3 +1,7 @@
+9-08-14
+Fixed issues with page title
+The Header is now dynamic
+
 08-08-14
 Added Sampling theorem
 Added Check for Nyquist plot

@@ -1,5 +1,6 @@
 from django import forms
 
+
 YESNO = (
     ('Yes','DFT'),
     ('No','IDFT'),
@@ -19,6 +20,8 @@ class Imp_form(forms.Form):
 class Dft_idft(forms.Form):
     input1 = forms.CharField(label='x(n)',max_length=20)
     choice = forms.ChoiceField(widget=forms.RadioSelect,choices=YESNO,initial='Yes',label='Choose between DFT / IDFT')
+
+
 
 class Nyq(forms.Form):
     input1 = forms.FloatField(label='Enter Input Frequency in hz     ')
