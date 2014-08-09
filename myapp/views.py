@@ -12,6 +12,8 @@ from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from uplot import gp
 from uplot import nyq_plot
+from uplot import twoplot
+from uplot import oneplot
 import numpy as np
 from dsp import arr_conv
 from dsp import arr_convf
@@ -48,14 +50,31 @@ def dft_idft(request):
                 res=np.fft.fft(x)
                 ch="Your choice was DFT"
                 result="The DFT of x(n) is: " + str(res)
+                ch=1
             elif choice=='No':
                 res=np.fft.ifft(x)
                 ch="Your choice was IDFT"
                 result="The IDFT of x(n) is: " + str(res)
+                ch=0
             xd="x(n) = " + str(x)
-            c='l'
+            #c='l'
             num=len(res)
-            gp(res,num,c)
+
+            a=res.real
+            b=res.imag
+
+            num=len(res)
+            numr=len(a)
+            numi=len(b)
+
+            for i in range (numi):
+                if b[i]!=0j:
+                    twoplot(numr,numi,a,b,ch)
+                else:
+                    oneplot(res,num,ch)
+
+
+            #gp(res,num,c)
             graphy='<img src="http://kingspp.pythonanywhere.com/media/plots/test.png" height="400px" width="500px" ></img>'
         return render_to_response('dsp/dft_idft.html', {'form':form, 'input1': xd, 'choice': ch, 'output':result, 'graphy':graphy,'right_now':datetime.now()}, context_instance=RequestContext(request))
     else:
@@ -276,6 +295,7 @@ def sampling(request):
     else:
         form = Nyq()
         return render_to_response('dsp/sampling.html', {'form': form,'right_now':datetime.now()}, context_instance=RequestContext(request))
+
 
 
 

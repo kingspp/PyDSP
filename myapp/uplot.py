@@ -62,3 +62,41 @@ def nyq_plot(fd,fs):
     savefig("Vote/media/plots/test.png")
     close()
 
+
+
+def twoplot(numr,numi,a,b,ch):
+    if ch==0:
+        suptitle('Inverse Discrete Fourier Transform', fontsize=14, fontweight='bold')
+    else:
+        suptitle('Discrete Fourier Transform', fontsize=14, fontweight='bold')
+    tr = arange(0,numr,1)
+    ti = arange(0,numi,1)
+    subplots_adjust(hspace=.5)
+    subplot(2,1,1)
+    title('Real Values')
+    grid(True)
+    xlabel('Time ')
+    ylabel('Magnitude')
+    stem(tr,a)
+    subplot(2,1,2)
+    title('Imaginary Values')
+    grid(True)
+    xlabel('Time ')
+    ylabel('Magnitude')
+    stem(ti,b)
+    savefig("Vote/media/plots/test.png")
+    close()
+
+def oneplot(res,num,ch):
+    if ch==0:
+        suptitle('Inverse Discrete Fourier Transform', fontsize=14, fontweight='bold')
+    else:
+        suptitle('Discrete Fourier Transform', fontsize=14, fontweight='bold')
+    t=arange(0,num,1)
+    stem(t,res)
+    grid(True)
+    xlabel('Time ')
+    ylabel('Magnitude')
+    savefig("Vote/media/plots/test.png")
+    close()
+
