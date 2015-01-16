@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 			
 	if(check==false){	
 	$("#header").css({"width": "798px","height":"34px"});
-	$(".navbar").css({"width": "758px","padding-left":"20px","padding-right":"20px","text-align":"center","padding-bottom":"70px"});
+	$(".navbar").css({"width": "758px","padding-left":"20px","padding-right":"20px","text-align":"center","padding-bottom":"71px"});
 	$("*").css({"margin": "0 auto 0 auto"});
 	$("#main").css({"width": "798px"});
 	$("#main .content").css({"width": "650px"});
