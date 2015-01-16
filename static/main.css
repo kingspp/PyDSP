@@ -1,0 +1,146 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: #C1C1C1;
+	background-image:url(http://kingspp.pythonanywhere.com/media/background.png);	
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #FFFFFF;
+}
+
+
+
+.navbar{   
+  border:0px;
+}
+
+.navbar-toggle{
+margin-top:15px;
+}
+
+.collapse.in{
+background-color:#1773CE;
+}
+
+.container-fluid{
+#padding-top:20px;
+}
+
+.navbar-default .navbar-toggle{
+padding-top:10px;
+}
+
+
+.navbar-default .navbar-nav>li>a{
+color:#FFFFFF;
+font-size:14px;
+font-family: Helvetica;
+font-weight: bold;
+
+}
+
+
+
+.navbar-default .navbar-brand{
+
+
+color:#FFFFFF;
+text-align:left;
+font-size:27px;
+font-weight:bold;
+font-family:Arial, Helvetica, sans-serif;
+
+
+
+}
+
+
+#header
+{
+background-image:url(http://kingspp.pythonanywhere.com/media/header.png);
+background-repeat:no-repeat;
+color:#267B9B;
+text-align:center;
+font-style:italic;
+background-position: center;
+}
+
+#main
+{
+background:url(http://kingspp.pythonanywhere.com/media/content_back.png);
+background-position: center;            	
+}
+
+#main .content
+{
+text-align:justify;
+color:#000000;
+word-spacing:3px;
+}
+
+#main .content p
+{
+}
+
+#main .content h1
+{
+font-size:19px;
+margin-bottom:12px;
+}
+
+#main .content a
+{
+text-decoration:none;
+color:#000000;
+font-weight:bold;
+word-spacing: 0px;
+}
+
+#main .content a:hover
+{
+color:#1773ce;
+}
+
+.clear
+{
+clear:both;
+}
+
+
+#footer {
+display:block;
+height:50px;
+background: url(http://kingspp.pythonanywhere.com/media/footer.png) no-repeat;
+background-position: center;   
+text-align:right;
+font-size:10px;
+line-height:48px;
+}
+
+#footer p{
+#padding-right:75px;
+text-align:right;
+}
+
+#footer x
+{
+text-align:left;
+}
+
+#footer, #footer a, #footer a:visited{
+text-decoration:none;
+color:#65A9ED;
+}
+
+#footer a:hover{
+text-decoration:none;
+color:#000000;
+}
+
+
+
+
+
+
+
+
