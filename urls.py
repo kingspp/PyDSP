@@ -8,6 +8,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'Vote.myapp.views.home', name='home'),
+	url(r'^home', 'Vote.myapp.views.home', name='home')
     url(r'^contact', 'Vote.myapp.views.contact', name='contact'),
     url(r'^about', 'Vote.myapp.views.about', name='about'),
     url(r'^linear_conv', 'Vote.myapp.views.linear_conv', name='linear_conv'),
