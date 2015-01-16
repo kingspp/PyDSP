@@ -75,7 +75,7 @@ def dft_idft(request):
 
 
             #gp(res,num,c)
-            graphy='<img src="http://kingspp.pythonanywhere.com/media/plots/test.png" height="400px" width="500px" ></img>'
+            graphy='<img class="image" src="http://kingspp.pythonanywhere.com/media/plots/test.png" height="400px" width="500px" ></img>'
         return render_to_response('dsp/dft_idft.html', {'form':form, 'input1': xd, 'choice': ch, 'output':result, 'graphy':graphy,'right_now':datetime.now()}, context_instance=RequestContext(request))
     else:
         form = Dft_idft()
