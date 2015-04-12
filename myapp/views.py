@@ -228,8 +228,9 @@ def ndft(request):
             input1 = cd['input1']
             x=arr_conv(input1)
             output = np.fft.fftn(x)
-
-            gp()
+            num=len(output)
+            c='nd'
+            gp(output,num,c)
             graphy='<img src="http://kingspp.pythonanywhere.com/media/plots/test.png" height="400px" width="500px" aligh="center"></img>'
 
             output = 'The N-Point Discrete Fourier Transform of x(n) is : ' + str(output)

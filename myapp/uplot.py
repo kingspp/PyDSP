@@ -23,6 +23,8 @@ def gp(res,num,c):
         t=arange(-n,n+1,1)
         xlabel('Amplitude')
         title('Crosscorrelation')
+    elif c== 'nd':
+        title('N Point DFT')
     stem(t, s)
     grid(True)
     savefig("Vote/media/plots/test.png")
