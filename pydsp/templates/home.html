@@ -2,80 +2,100 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/static/media/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="/static/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="/static/main.css" />
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/main.css"/>
     <title>PyDSP</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125906941-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-125906941-1');
+    </script>
+
 </head>
 
 <body>
 
-    {% block navbar %}
+{% block navbar %}
     <nav class="navbar navbar-default">
-		<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<h1 style="color:#FFFFFF"><img src="/static/media/newlogo-repro.png" width="50" height="50">&nbsp;&nbsp;PyDSP</h1>
-			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/" style="color:#FFFFFF">Home</a></li>
-					<li><a href="/about" style="color:#FFFFFF">About</a></li>
-					<li><a href="/contact" style="color:#FFFFFF">Contact</a></li>
-				</ul>
-			</div><!-- /.navbar-collapse -->
-		</div><!-- /.container-fluid -->
-	</nav>
-    {% endblock %}
-
-	<div id="header">  Like Python! Like Never Before!     </div>
-
-
-	<div id="main">
-		<div class="content">
-        	<div class="main_top">
-            	<h1>{% block title %}Digital Signal Processing:{% endblock %}</h1>
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h1 style="color:#FFFFFF"><img src="/static/media/newlogo-repro.png" width="50" height="50">&nbsp;&nbsp;PyDSP
+                </h1>
             </div>
 
-           	<div class="main_body">
-                {% block main_body %}
-                <p>&nbsp&nbspDigital signal processing (DSP) is the mathematical manipulation of an information signal to modify or improve it in some way. It is characterized by the representation of discrete time, discrete frequency, or other discrete domain signals by a sequence of numbers or symbols and the processing of these signals.</p>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/" style="color:#FFFFFF">Home</a></li>
+                    <li><a href="/about" style="color:#FFFFFF">About</a></li>
+                    <li><a href="/contact" style="color:#FFFFFF">Contact</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+{% endblock %}
+
+<div id="header"> Like Python! Like Never Before!</div>
+
+
+<div id="main">
+    <div class="content">
+        <div class="main_top">
+            <h1>{% block title %}Digital Signal Processing:{% endblock %}</h1>
+        </div>
+
+        <div class="main_body">
+            {% block main_body %}
+                <p>&nbsp&nbspDigital signal processing (DSP) is the mathematical manipulation of an information signal
+                    to modify or improve it in some way. It is characterized by the representation of discrete time,
+                    discrete frequency, or other discrete domain signals by a sequence of numbers or symbols and the
+                    processing of these signals.</p>
                 <list>
-					<li><a href="dft_idft">DFT and IDFT</a></li>
-					<li><a href="linear_conv">Linear Convolution</a></li>
-					<li><a href="circular_conv">Circular Convolution</a></li>
-					<li><a href="imp_respf">Impulse Response [First Order]</a></li>
-					<li><a href="imp_resps">Impulse Response [Second Order]</a></li>
-					<li><a href="ndft">N-Point Discrete Fourier Transform</a></li>
-					<li><a href="auto_corr">Autocorrelation</a></li>
-					<li><a href="cross_corr">Crosscorrelation</a></li>
-					<li><a href="sampling">Sampling Theorem</a></li>
+                    <li><a href="dft_idft">DFT and IDFT</a></li>
+                    <li><a href="linear_conv">Linear Convolution</a></li>
+                    <li><a href="circular_conv">Circular Convolution</a></li>
+                    <li><a href="imp_respf">Impulse Response [First Order]</a></li>
+                    <li><a href="imp_resps">Impulse Response [Second Order]</a></li>
+                    <li><a href="ndft">N-Point Discrete Fourier Transform</a></li>
+                    <li><a href="auto_corr">Autocorrelation</a></li>
+                    <li><a href="cross_corr">Crosscorrelation</a></li>
+                    <li><a href="sampling">Sampling Theorem</a></li>
                 </list>
-                {% endblock %}
-            </div>
+            {% endblock %}
+        </div>
 
-		</div>
-		<div class="clear">&nbsp;</div>
     </div>
+    <div class="clear">&nbsp;</div>
+</div>
 
-	<div id="footer">
-        <p><a href="http://github.com/kingspp">@kingspp</a> powered by <a href="https://www.djangoproject.com">DJango</a> {{ right_now }}</p>
-	</div>
+<div id="footer">
+    <p><a href="http://github.com/kingspp">@kingspp</a> powered by <a
+            href="https://www.djangoproject.com">DJango</a> {{ right_now }}</p>
+</div>
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/static/bootstrap.js" ></script>
-	<script src="/static/main.js" ></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/static/bootstrap.js"></script>
+<script src="/static/main.js"></script>
 </body>
 </html>
