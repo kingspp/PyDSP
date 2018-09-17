@@ -26,5 +26,5 @@ urlpatterns = [
     url(r'^cross_corr', pydsp.views.cross_corr, name='cross_corr'),
     url(r'^sampling', pydsp.views.sampling, name='sampling'),
     # url(r'^db', hello.views.db, name='db'),
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
 ]
