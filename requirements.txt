@@ -1,0 +1,5 @@
+matplotlib==2.2.2
+numpy==1.15.1
+Django==1.4
+django-heroku
+gunicorn

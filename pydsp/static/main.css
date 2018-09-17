@@ -2,7 +2,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background: #C1C1C1;
-	background-image:url(http://kingspp.pythonanywhere.com/media/background.png);
+	background-image:url('/static/media/background.png');
 	background-repeat: repeat-x;
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size: 13px;
@@ -58,7 +58,7 @@ font-family:Arial, Helvetica, sans-serif;
 
 #header
 {
-background-image:url(http://kingspp.pythonanywhere.com/media/header.png);
+background-image:url('/static/media/header.png');
 background-repeat:no-repeat;
 color:#267B9B;
 text-align:center;
@@ -68,7 +68,7 @@ background-position: center;
 
 #main
 {
-background:url(http://kingspp.pythonanywhere.com/media/content_back.png);
+background:url("/static/media/content_back.png");
 background-position: center;
 padding: 10px;
 }
@@ -112,7 +112,7 @@ clear:both;
 #footer {
 display:block;
 height:50px;
-background: url(http://kingspp.pythonanywhere.com/media/footer.png) no-repeat;
+background: url("/static/media/footer.png") no-repeat;
 background-position: center;
 text-align:right;
 font-size:10px;

@@ -1,5 +1,7 @@
 from pylab import *
 
+SAVE_DIR = './pydsp/static/media/plots/test.png'
+
 def gp(res,num,c):
     t = arange(0,num,1)
     s = res
@@ -27,7 +29,7 @@ def gp(res,num,c):
         title('N Point DFT')
     stem(t, s)
     grid(True)
-    savefig("Vote/media/plots/test.png")
+    savefig(SAVE_DIR)
     close()
 
 def nyq_plot(fd,fs):
@@ -61,7 +63,7 @@ def nyq_plot(fd,fs):
     xn=cos(2*pi*fd*t)
     plot(t,xn,t1,yn,'r*-')
     grid(True)
-    savefig("Vote/media/plots/test.png")
+    savefig(SAVE_DIR)
     close()
 
 
@@ -86,7 +88,7 @@ def twoplot(numr,numi,a,b,ch):
     xlabel('Time ')
     ylabel('Magnitude')
     stem(ti,b)
-    savefig("Vote/media/plots/test.png")
+    savefig(SAVE_DIR)
     close()
 
 def oneplot(res,num,ch):
@@ -99,6 +101,6 @@ def oneplot(res,num,ch):
     grid(True)
     xlabel('Time ')
     ylabel('Magnitude')
-    savefig("Vote/media/plots/test.png")
+    savefig(SAVE_DIR)
     close()
 
