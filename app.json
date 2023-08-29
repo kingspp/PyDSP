@@ -6,6 +6,6 @@
     "python",
     "sample"
   ],
-  "repository": "https://github.com/kingspp/pydsp"
-
+  "repository": "https://github.com/kingspp/pydsp",
+  "stack": "heroku-20"
 }
